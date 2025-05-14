@@ -180,7 +180,8 @@ poetry install
 # Start React Native app
 pnpm dev:app
 
-
+# Start landing page
+pnpm dev:lp
 
 # Start backend API
 pnpm dev:backend
@@ -195,7 +196,8 @@ pnpm dev
 # Build React Native app
 pnpm build:app
 
-
+# Build landing page
+pnpm build:lp
 ```
 
 ### Linting and Testing
@@ -204,8 +206,14 @@ pnpm build:app
 # Lint React Native app
 pnpm lint:app
 
+# Lint landing page
+pnpm lint:lp
+
 # Test React Native app
 pnpm test:app
+
+# Test landing page
+pnpm test:lp
 ```
 
 ## Adding New Dependencies
@@ -214,7 +222,7 @@ To add dependencies to a specific package:
 
 ```bash
 # For the React Native app
-pnpm --filter frontend-app add <package-name>
+pnpm --filter ./packages/frontend-app add <package-name>
 ```
 
 To add development dependencies:
@@ -229,7 +237,7 @@ To use shared packages in a frontend project:
 
 ```bash
 # Add shared-ui package to frontend-app
-pnpm --filter frontend-app add "shared-ui@workspace:*"
+pnpm --filter ./packages/frontend-app add "shared-ui@workspace:*"
 ```
 
 ## Creating New Shared Packages

@@ -1,0 +1,65 @@
+{
+  "name": "vizinn",
+  "displayName": "vizinn",
+  "expo": {
+    "name": "vizinn",
+    "slug": "vizinn",
+    "scheme": "vizinn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "icon": "./assets/images/new-icons/ios-icon.png",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "newArchEnabled": false,
+    "jsEngine": "hermes",
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "icon": "./assets/images/new-icons/ios-icon.png",
+      "package": "com.vizinn",
+      "adaptiveIcon": {
+        "foregroundImage": "",
+        "backgroundImage": ""
+      },
+      "allowBackup": false
+    },
+    "ios": {
+      "icon": "./assets/images/new-icons/ios-icon.png",
+      "supportsTablet": true,
+      "bundleIdentifier": "com.vizinn",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/new-icons/ios-icon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-localization",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-screen/splash-screen-vizinn.png",
+          "imageWidth": 900,
+          "resizeMode": "cover",
+          "backgroundColor": "#1E2336"
+        }
+      ]
+    ],
+    "experiments": {
+      "tsconfigPaths": true,
+      "newArchEnabled": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8507131e-df3e-43a5-ad91-f0185916cfcf"
+      }
+    }
+  },
+  "ignite": {
+    "version": "10.1.9"
+  }
+}
