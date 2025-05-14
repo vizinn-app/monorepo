@@ -1,4 +1,4 @@
-# Vizinn## 📌 Initial Focus
+# Vizinn 📌 Initial Focus
 
 - Users can define their area of interest, allowing transactions within their condominium or in strategic locations such as universities, shopping centers, and specific neighborhoods.norepo
 
