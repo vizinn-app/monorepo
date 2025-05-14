@@ -11,6 +11,12 @@ We believe in transparent, collaborative development and look forward to your co
 For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
 ### [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
+## 👾  Discord
+
+If you wish to support this initiative or be part of the project, contact us:
+
+🔗  **[Link](https://discord.gg/GkfDbTY6xu)**
+
 ## 💼 Market Impact
 
 **Vizinn** is poised to transform local economies and community interactions in significant ways:
@@ -75,11 +81,7 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - 🔔 WebSockets for real-time updates.
 - 🚀 CI/CD for automated deployment.
 
-## 👾  Discord
 
-If you wish to support this initiative or be part of the project, contact us:
-
-🔗  **[Link](https://discord.gg/GkfDbTY6xu)**
 
 ## Monorepo Structure
 
