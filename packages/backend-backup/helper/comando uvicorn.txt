@@ -1,0 +1,27 @@
+rodar uvicorn
+
+uvicorn main:app --reload
+
+
+poetry shell
+
+poetry install
+
+task "comando"
+
+task run
+
+fastapi dev fast_zero/app.py
+
+alembic init migrations
+
+alembic revision --autogenerate -m "create users table"
+Este comando instrui o Alembic a criar uma nova revisão de migração no 
+diretório migrations/versions. A revisão gerada conterá os comandos SQL 
+necessários para aplicar a migração (criar a tabela de usuários) e para 
+reverter essa migração, caso seja necessário.
+
+
+alembic upgrade head
+Para aplicar as migrações, usamos o comando upgrade do CLI Alembic. 
+O argumento head indica que queremos aplicar todas as migrações que ainda não foram aplicadas:
