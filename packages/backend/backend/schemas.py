@@ -39,3 +39,4 @@ class Token(BaseModel):
 
 class verifyCodeSchema(BaseModel):
     verification_code: str
+    email: str

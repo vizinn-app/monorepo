@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from twilio.rest import Client
 
 from backend.models import User, UserVerification
+from backend.security import get_password_hash
 from backend.settings import Settings
 
 client = Client(Settings().account_sid, Settings().auth_token)
@@ -20,11 +21,13 @@ def send_sms(db_user: User, session: Session):
     )
 
     if user_verification:
-        user_verification.verification_code = verification_code
+        user_verification.verification_code = get_password_hash(verification_code)
         user_verification.is_verified = False
     else:
         user_verification = UserVerification(
-            user_id=db_user.id, verification_code=verification_code, is_verified=False
+            user_id=db_user.id,
+            verification_code=get_password_hash(verification_code),
+            is_verified=False,
         )
         session.add(user_verification)
 
