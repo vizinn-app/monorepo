@@ -6,7 +6,7 @@
 
 ## 🏡 About the Project
 
-**Vizinn** is an innovative platform that connects condominium residents and users in specific regions for buying, selling, and offering services in a practical and secure way. Our goal is to strengthen the local economy and create a reliable environment for transactions between neighbors and nearby communities.
+**Vizinn** is an innovative platform that connects users in specific regions for buying, selling, and offering services in a practical and secure way. Our goal is to strengthen the local economy and create a reliable environment for transactions between neighbors and nearby communities.
 
 ## 🚀 Initial Focus
 
