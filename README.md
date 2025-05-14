@@ -1,12 +1,6 @@
-# Vizinn – Hyperlocal Marketplace for nearby regions
+# Open Source Project
 
-## 🏡 About the Project
-
-**Vizinn** is an innovative platform that connects users in specific regions for buying, selling, and offering services in a practical and secure way. Our goal is to strengthen the local economy and create a reliable environment for transactions between neighbors and nearby communities.
-
-## 🌟 Open Source Project
-
-**Vizinn** is an open source project that welcomes contributors from all backgrounds. Whether you're a seasoned developer or just starting out, this project offers a fantastic opportunity to:
+**Vizinn** is an innovative, open-source platform that connects users in specific regions for buying, selling, and offering services in a practical and secure way. Our goal is to strengthen the local economy and create a reliable environment for transactions between neighbors and nearby communities. We welcome contributors from all backgrounds. Whether you're a seasoned developer or just starting out, this project offers a fantastic opportunity to collaborate and make a real impact.
 
 - 📚 Learn modern technologies in a real-world application
 - 👥 Collaborate with a community of developers
