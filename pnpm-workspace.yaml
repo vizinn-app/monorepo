@@ -1,0 +1,10 @@
+packages:
+  - frontend-app
+  - backend
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@tailwindcss/oxide'
+  - postinstall-prepare
+  - sharp
+  - unrs-resolver
