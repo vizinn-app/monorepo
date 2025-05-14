@@ -7,7 +7,7 @@
 - 📝 Build a meaningful addition to your professional portfolio
 - 🌐 Make an impact on local communities through technology
 
-We believe in transparent, collaborative development and look forward to your contributions!
+We believe in transparent, collaborative development and look forward to your contributions! <br/>
 For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
 ### [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
