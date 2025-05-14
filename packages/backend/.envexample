@@ -1,0 +1,8 @@
+DATABASE_URL_="sqlite:///database.db"
+account_sid = ''
+auth_token = ''
+twilio_phone_number = ''
+SECRET_KEY = ''
+CLOUDINARY_CLOUD_NAME = ''
+CLOUDINARY_API_KEY = ''
+CLOUDINARY_API_SECRET = ''

@@ -16,7 +16,7 @@ from backend.settings import Settings
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 1440  # 24 hours
 pwd_context = PasswordHash.recommended()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl='auth/token')
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
 
 
 def get_password_hash(password: str):
