@@ -13,8 +13,9 @@
 - 📝 Build a meaningful addition to your professional portfolio
 - 🌐 Make an impact on local communities through technology
 
-We believe in transparent, collaborative development and look forward to your contributions!
-For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
+### We believe in transparent, collaborative development and look forward to your contributions!
+### For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
+### [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
 ## 💼 Market Impact
 
@@ -58,7 +59,7 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - 💳 **Integrated Payment Option** – Facilitating secure transactions within the app.
 - 📢 **Specific Requests** – Users can publish specific demands, such as "I want lunch at UFRN."
 
-## [See or create an issue!](https://github.com/vizinn-app/app/issues)
+
 
 ## 🛠 Technologies Used
 
