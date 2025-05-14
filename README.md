@@ -197,7 +197,7 @@ We welcome contributions to the Vizinn project! Contributing to this project not
 1. **Fork the repository** to your own GitHub account
 2. **Clone your fork** to your local machine:
    ```bash
-   git clone https://github.com/YOUR-USERNAME/vizinn.git
+   git clone https://github.com/YOUR-USERNAME/vizinn-app.git
    cd vizinn
    ```
 3. **Set up the project** by following the installation instructions below
