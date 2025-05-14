@@ -14,8 +14,7 @@
 - 🌐 Make an impact on local communities through technology
 
 We believe in transparent, collaborative development and look forward to your contributions!
-
-
+For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
 
 ## 💼 Market Impact
 
@@ -59,92 +58,7 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - 💳 **Integrated Payment Option** – Facilitating secure transactions within the app.
 - 📢 **Specific Requests** – Users can publish specific demands, such as "I want lunch at UFRN."
 
-## 📌 MVP Essential Features
-
-### ✅ 1. Registration and Login
-🔹 **Objective:** Ensure that only residents or users in the region have access to the platform.
-
-📌 **Features:**
-- Registration via email and password or login with Google/Facebook.
-- Validation via SMS/email code to ensure identity.
-- Residence confirmation via condominium code (optional).
-- Basic user profile (name, photo, location).
-
-🔧 **Suggested technologies:** Firebase Authentication, OAuth, Twilio (SMS).
-
-### ✅ 2. Hyperlocal Marketplace
-🔹 **Objective:** Allow residents to buy and sell products/services among themselves.
-
-📌 **Features:**
-- Create listings with title, description, price, and photos.
-- Category selection (e.g., Electronics, Services, Furniture).
-- Feed of listings organized by location and category.
-- Option to mark an item as "Sold."
-
-🔧 **Suggested technologies:** Firestore, PostgreSQL/MongoDB, Cloudinary.
-
-### ✅ 3. Smart Location Filters
-🔹 **Objective:** Allow users to find products and services near them.
-
-📌 **Features:**
-- Manual definition of the area of interest.
-- Distance filtering (e.g., up to 2km, up to 5km).
-- Search only within the user's condominium.
-
-🔧 **Suggested technologies:** Google Maps API, GeoFire.
-
-### ✅ 4. Internal Chat between Users
-🔹 **Objective:** Facilitate communication between buyers and sellers directly in the app.
-
-📌 **Features:**
-- Private messages between users.
-- Push notifications for new messages.
-- Read/unread message indication.
-
-🔧 **Suggested technologies:** Firestore (real-time), Firebase Cloud Messaging.
-
-### ✅ 5. Moderation and Security
-🔹 **Objective:** Create a safe and reliable environment for users.
-
-📌 **Features:**
-- **Reporting System:** Report suspicious listings or users.
-- **Basic Rules:** Terms of use visible and accepted during registration.
-- **User Blocking:** Active moderation.
-
-🔧 **Suggested technologies:** Firebase Moderation, manual moderation.
-
-## 📢 Subscription Plan in MVP
-
-### ✅ 1. Subscription Model
-
-#### **Free User:**
-- Can post up to **3 simultaneous listings**.
-- Each listing can contain a maximum of **2 images**.
-- Normal access to marketplace and chat.
-
-#### **Premium User (Paid):**
-- **Unlimited listings**.
-- Can add **more than 2 images** per listing.
-- Ability to **highlight listings for free** (X times per month).
-- **Priority support** and future exclusive features.
-
-### ✅ 2. Subscription Implementation
-
-📌 **Features:**
-- Subscription screen with benefit details.
-- Integrated payment system (**Stripe, Mercado Pago, or App Store/Google Play**).
-- Plan control in the user's profile.
-- Alert when the free user reaches the limit of listings or images.
-
-🔧 **Suggested technologies:**
-- **Stripe / Mercado Pago** (recurring payments).
-- **Firebase Firestore** for subscription status.
-- **Cloud Functions** for permission control.
-
-### ✅ 3. User Experience
-- **When trying to create a 4th listing**, a pop-up offers the premium upgrade.
-- **When trying to add more than 2 images**, a message alerts about the limitation.
-- **"My Listings" page** showing the count of active listings.
+## [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
 ## 🛠 Technologies Used
 
@@ -230,7 +144,7 @@ Once your PR is accepted:
 - Your name will be added to our contributors list
 - You'll have the opportunity to become a regular maintainer
 
-For a detailed contribution guide, check out our [CONTRIBUTING.md](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) file.
+
 
 ## Requirements
 
@@ -384,4 +298,4 @@ To help you get started with the technologies used in this project, we've compil
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [Pull Request Best Practices](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/)
 
-## 🚀 Vizinn App – Transforming Neighborhoods, Connecting People!
+## Transforming Neighborhoods, Connecting People!
