@@ -1,4 +1,6 @@
-# Vizinn Monorepo
+# Vizinn## 📌 Initial Focus
+
+- Users can define their area of interest, allowing transactions within their condominium or in strategic locations such as universities, shopping centers, and specific neighborhoods.norepo
 
 # Vizinn – Hyperlocal marketplace for condominiums and nearby regions
 
@@ -113,6 +115,7 @@
 
 ### **Front-End (TypeScript)**
 - ⚛ **React Native** – Framework for building native mobile apps.
+- 📱 **Expo** – Platform for universal React applications.
 - 🚀 **Ignite** – Boilerplate for accelerated development.
 - 🎨 **NativeWind (TailwindCSS)** – Efficient and optimized styling for React Native.
 - 🔗 **Axios** – Efficient HTTP requests.
@@ -120,9 +123,9 @@
 
 ### **Back-End (Python)**
 - ⚡ **FastAPI** – Modern and high-performance framework for APIs.
-- 🗄 **Prisma** – ORM for SQL databases.
+- 🗄 **SQLAlchemy** – ORM for SQL databases.
 - 🔐 **JWT** – Secure authentication.
-- 🏦 **PostgreSQL** – Scalable and reliable database.
+- 🏦 **SQLite/PostgreSQL** – Scalable and reliable database.
 
 ### **Other Technologies**
 - 🔔 WebSockets for real-time updates.
@@ -138,10 +141,9 @@ If you wish to support this initiative or be part of the project, contact us:
 
 This monorepo contains the following packages:
 
-- `frontend-app`: React Native/Expo application
-- `backend`: Python API with FastAPI
-- `packages/`: Folder containing shared libraries
-  - `shared-ui`: UI utilities shared between frontend projects
+- `packages/frontend-app`: React Native/Expo application
+- `packages/backend`: Python API with FastAPI
+- `packages/shared-ui`: UI utilities shared between frontend projects
 
 ## 🚀 Contributing
 
@@ -168,7 +170,7 @@ We welcome contributions to the Vizinn project! Follow these steps to contribute
 pnpm install
 
 # Install backend dependencies (Python)
-cd backend
+cd packages/backend
 poetry install
 ```
 
@@ -180,14 +182,41 @@ poetry install
 # Start React Native app
 pnpm dev:app
 
-# Start landing page
-pnpm dev:lp
-
 # Start backend API
 pnpm dev:backend
 
-# Start all services (except backend which requires Poetry)
+# Start both frontend and backend servers in separate terminals (recommended)
+pnpm start
+
+# Start both servers in a single terminal
+pnpm start:alt
+
+# Start both servers in a single terminal using the unified script
+pnpm start:unified
+
+# Display manual start instructions
+pnpm start:manual
+
+# Run all services in parallel
 pnpm dev
+```
+
+## Starting Servers
+
+There are multiple ways to start the development servers:
+
+```bash
+# Recommended: Start frontend and backend in separate terminals (full QR code visibility)
+pnpm start
+
+# Alternative: Start both servers in a single terminal
+pnpm start:alt
+
+# Alternative with script: Start both in a single terminal
+pnpm start:unified
+
+# Start manually with instructions
+pnpm start:manual
 ```
 
 ### Build
@@ -196,8 +225,8 @@ pnpm dev
 # Build React Native app
 pnpm build:app
 
-# Build landing page
-pnpm build:lp
+# Build all packages
+pnpm build
 ```
 
 ### Linting and Testing
@@ -206,14 +235,8 @@ pnpm build:lp
 # Lint React Native app
 pnpm lint:app
 
-# Lint landing page
-pnpm lint:lp
-
 # Test React Native app
 pnpm test:app
-
-# Test landing page
-pnpm test:lp
 ```
 
 ## Adding New Dependencies
@@ -253,7 +276,7 @@ Use the available script to easily create new shared packages:
 The backend uses Poetry for Python dependency management:
 
 ```bash
-# Inside the backend folder
+# Inside the packages/backend folder
 poetry add <package-name>
 
 # Run the FastAPI server
