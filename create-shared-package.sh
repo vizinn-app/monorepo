@@ -108,9 +108,7 @@ pnpm install
 
 echo "✅ Pacote '$PACKAGE_NAME' criado com sucesso em $PACKAGE_DIR"
 echo ""
-echo "Para utilizar o pacote nos projetos frontend, execute:"
-echo "pnpm --filter frontend-app add \"$PACKAGE_NAME@workspace:*\""
-# Frontend LP has been removed from the monorepo
-echo ""
 echo "Para compilar o pacote:"
 echo "pnpm --filter $PACKAGE_NAME build"
+echo ""
+echo "Nota: Frontend app foi removido do monorepo."

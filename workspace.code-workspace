@@ -5,10 +5,6 @@
       "name": "Vizinn Monorepo"
     },
     {
-      "path": "./packages/frontend-app",
-      "name": "App Vizinn"
-    },
-    {
       "path": "./packages/backend",
       "name": "Backend Vizinn"
     },

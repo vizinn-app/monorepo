@@ -2,21 +2,12 @@
   "name": "vizinn-monorepo",
   "private": true,
   "version": "1.0.0",
-  "description": "Vizinn monorepo containing frontend and backend applications",
+  "description": "Vizinn monorepo containing backend application",
   "scripts": {
-    "dev:app": "cd packages/frontend-app && npx expo start",
     "dev:backend": "cd packages/backend && poetry run uvicorn backend.app:app --reload",
     "dev": "pnpm -r --workspace-concurrency Infinity run dev",
     "start:backend": "cd packages/backend && poetry run uvicorn backend.app:app --reload",
-    "start": "./start-servers.sh",
-    "start:unified": "./start-unified.sh",
-    "start:alt": "concurrently \"cd packages/frontend-app && npx expo start\" \"cd packages/backend && poetry run uvicorn backend.app:app --reload\" --names \"FRONTEND,BACKEND\" --prefix-colors \"blue,green\"",
-    "start:manual": "echo 'Iniciando servidores separadamente para exibir QR code completo e todas as opções...' && echo 'Execute em um terminal: pnpm dev:app' && echo 'Execute em outro terminal: pnpm dev:backend'",
-    "build:app": "pnpm --filter ./packages/frontend-app run build",
-    "build:packages": "pnpm --filter \"./packages/**\" run build",
-    "build": "pnpm build:packages && pnpm build:app",
-    "lint:app": "pnpm --filter ./packages/frontend-app run lint",
-    "test:app": "pnpm --filter ./packages/frontend-app run test"
+    "start": "./start-servers.sh"
   },
   "keywords": [],
   "author": "",

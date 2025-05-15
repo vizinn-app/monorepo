@@ -87,9 +87,8 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 
 This monorepo contains the following packages:
 
-- `packages/frontend-app`: React Native/Expo application
 - `packages/backend`: Python API with FastAPI
-- `packages/shared-ui`: UI utilities shared between frontend projects
+- `packages/shared-ui`: UI utilities shared between projects
 
 ## 🚀 Contributing
 
@@ -231,8 +230,8 @@ pnpm test:app
 To add dependencies to a specific package:
 
 ```bash
-# For the React Native app
-pnpm --filter ./packages/frontend-app add <package-name>
+# Example for any package
+pnpm --filter <package-name> add <dependency-name>
 ```
 
 To add development dependencies:
@@ -243,11 +242,11 @@ pnpm --filter <package-name> add -D <dependency-name>
 
 ## Using Shared Packages
 
-To use shared packages in a frontend project:
+To use shared packages in other projects:
 
 ```bash
-# Add shared-ui package to frontend-app
-pnpm --filter ./packages/frontend-app add "shared-ui@workspace:*"
+# Add shared-ui package to any project
+pnpm --filter <project-name> add "shared-ui@workspace:*"
 ```
 
 ## Creating New Shared Packages
