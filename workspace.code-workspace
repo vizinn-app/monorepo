@@ -5,7 +5,7 @@
       "name": "Vizinn Root"
     },
     {
-      "path": "./packages/frontend",
+      "path": "./packages/frontend-app",
       "name": "Frontend"
     },
     {

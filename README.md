@@ -156,49 +156,34 @@ cd packages/backend
 poetry install
 ```
 
-## Available Commands
+## Running the Project
 
-### Development
+To run the Vizinn project, you need to start both the frontend and backend servers. The simplest way is to run these commands in separate terminal windows:
+
+### Start the Frontend
 
 ```bash
-# Start React Native app
-pnpm dev:app
+# Navigate to the project root and run:
+npm run dev:frontend
 
-# Start backend API
-pnpm dev:backend
-
-# Start both frontend and backend servers in separate terminals (recommended)
-pnpm start
-
-# Start both servers in a single terminal
-pnpm start:alt
-
-# Start both servers in a single terminal using the unified script
-pnpm start:unified
-
-# Display manual start instructions
-pnpm start:manual
-
-# Run all services in parallel
-pnpm dev
 ```
 
-## Starting Servers
-
-There are multiple ways to start the development servers:
+### Start the Backend
 
 ```bash
-# Recommended: Start frontend and backend in separate terminals (full QR code visibility)
-pnpm start
+# Navigate to the project root and run:
+npm run dev:backend
 
-# Alternative: Start both servers in a single terminal
-pnpm start:alt
+```
 
-# Alternative with script: Start both in a single terminal
-pnpm start:unified
+### Running Both Together
 
-# Start manually with instructions
-pnpm start:manual
+If you want to run both servers simultaneously, you can use:
+
+```bash
+# Run all services in parallel
+npm run dev
+
 ```
 
 ### Build
@@ -293,11 +278,11 @@ Before using the workspace configuration, install the following VS Code extensio
 
 ### Automatic Terminal Configuration
 
-The workspace is configured to automatically open three terminal sessions:
+Com esta configuração, ao abrir o workspace, três terminais serão abertos automaticamente:
 
-1. **App Terminal** - Runs the backend development server
-2. **App Server** - Runs the frontend development server
-3. **Monorepo Root** - A terminal at the root of the project for general commands
+1. **App Terminal** - Executa o servidor backend (`npm run dev:backend`)
+2. **App Server** - Executa o aplicativo frontend (`npm run dev:frontend`)
+3. **Monorepo Root** - Terminal na raiz do projeto para comandos gerais
 
 ### Workspace Configuration
 
@@ -314,7 +299,7 @@ If you want to customize the workspace configuration, you can edit the `workspac
       "name": "Vizinn Root"
     },
     {
-      "path": "./packages/frontend",
+      "path": "./packages/frontend-app", // Ajuste para corresponder à estrutura atual
       "name": "Frontend"
     },
     {
@@ -330,21 +315,21 @@ If you want to customize the workspace configuration, you can edit the `workspac
       {
         "splitTerminals": [
           {
-            "name": "App Terminal",
+            "name": "App Terminal", // Terminal para o backend
             "commands": [
               "cd ~/Projects/vizinn",
-              "npm run dev:backend"
+              "npm run dev:backend" // Executa o servidor FastAPI
             ]
           },
           {
-            "name": "App Server",
+            "name": "App Server", // Terminal para o frontend
             "commands": [
               "cd ~/Projects/vizinn",
-              "npm run dev:frontend"
+              "npm run dev:frontend" // Executa o app React Native
             ]
           },
           {
-            "name": "Monorepo Root",
+            "name": "Monorepo Root", // Terminal adicional para outros comandos
             "commands": [
               "cd ~/Projects/vizinn",
               "echo 'Vizinn Monorepo'"
