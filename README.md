@@ -38,6 +38,7 @@ If you wish to support this initiative or be part of the project, contact us:
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e40e02ea-1410-4389-b536-73750d60443d" alt="image" />
 </p>
+
 ### 👥 Social Impact
 - **Strengthen Community Bonds**: Foster connections between neighbors who might otherwise never interact
 - **Increase Safety and Trust**: Create a verified marketplace with accountability through the rating system
