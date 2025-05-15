@@ -1,4 +1,4 @@
-# Open Source Project
+# Vizinn
 
 **Vizinn** is an innovative, open-source platform that connects users in specific regions for buying, selling, and offering services in a practical and secure way. Our goal is to strengthen the local economy and create a reliable environment for transactions between neighbors and nearby communities. We welcome contributors from all backgrounds. Whether you're a seasoned developer or just starting out, this project offers a fantastic opportunity to collaborate and make a real impact.
 
@@ -41,14 +41,11 @@ If you wish to support this initiative or be part of the project, contact us:
 
 By addressing these market gaps, **Vizinn** represents not just an app but a paradigm shift in how we think about community commerce and neighborhood interactions.
 
-
-
 ## 🚀 Initial Focus
 
 - Users can define their area of interest, allowing transactions within their condominium or in strategic locations such as universities, shopping centers, and specific neighborhoods.
 
 ## 📌 Main Features
-
 - ✅ **Exclusive Marketplace** – Only verified residents or users in nearby regions can post listings and make purchases.
 - 🌟 **Featured Listings** – Users can pay to highlight their listings and increase visibility.
 - 📍 **Smart Location Filters** – Search for products and services within your condominium or specific areas.
@@ -58,8 +55,6 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - 🔒 **Security and Moderation** – Reporting inappropriate listings and identity validation.
 - 💳 **Integrated Payment Option** – Facilitating secure transactions within the app.
 - 📢 **Specific Requests** – Users can publish specific demands, such as "I want lunch at UFRN."
-
-
 
 ## 🛠 Technologies Used
 
@@ -76,18 +71,21 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - 🗄 **SQLAlchemy** – ORM for SQL databases.
 - 🔐 **JWT** – Secure authentication.
 - 🏦 **SQLite/PostgreSQL** – Scalable and reliable database.
+- 🔧 **Alembic** – Database migration tool.
+- 📊 **Pydantic** – Data validation and settings management.
 
 ### **Other Technologies**
 - 🔔 WebSockets for real-time updates.
 - 🚀 CI/CD for automated deployment.
-
-
+- 📦 PNPM for monorepo package management.
+- 🐍 Poetry for Python dependency management.
 
 ## Monorepo Structure
 
 This monorepo contains the following packages:
 
 - `packages/backend`: Python API with FastAPI
+- `packages/frontend-app`: React Native mobile application
 - `packages/shared-ui`: UI utilities shared between projects
 
 ## 🚀 Contributing
@@ -139,8 +137,6 @@ Once your PR is accepted:
 - You'll be given the "contributor" role on our Discord server
 - Your name will be added to our contributors list
 - You'll have the opportunity to become a regular maintainer
-
-
 
 ## Requirements
 
@@ -269,6 +265,100 @@ poetry add <package-name>
 poetry run uvicorn backend.app:app --reload
 ```
 
+For detailed backend setup instructions, see the [backend README](/packages/backend/README.md).
+
+## 🛠️ VS Code Workspace Setup
+
+To enhance your development experience, we provide a VS Code workspace configuration that automatically sets up your project structure and opens multiple terminals for development.
+
+### Required Extension
+
+Before using the workspace configuration, install the following VS Code extension:
+
+- **Restore Terminals** - [manuth/vscode-restore-terminals](https://marketplace.visualstudio.com/items?itemName=EthanSK.restore-terminals)
+  - This extension automatically opens and configures your terminal sessions when you open the workspace.
+
+### How to Use the Workspace
+
+1. Open the project in VS Code by clicking on the `workspace.code-workspace` file in the root directory.
+2. Alternatively, you can open it from the command line:
+   ```bash
+   code workspace.code-workspace
+   ```
+
+3. This will set up your workspace with the following structure:
+   - "Vizinn Root" - The root directory of the project
+   - "Frontend" - The frontend application
+   - "Backend" - The backend API
+
+### Automatic Terminal Configuration
+
+The workspace is configured to automatically open three terminal sessions:
+
+1. **App Terminal** - Runs the backend development server
+2. **App Server** - Runs the frontend development server
+3. **Monorepo Root** - A terminal at the root of the project for general commands
+
+### Workspace Configuration
+
+If you want to customize the workspace configuration, you can edit the `workspace.code-workspace` file. Here's what the current configuration looks like:
+
+
+> **Note**: You may need to adjust the file paths in the commands to match your specific project location.
+
+```json
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Vizinn Root"
+    },
+    {
+      "path": "./packages/frontend",
+      "name": "Frontend"
+    },
+    {
+      "path": "./packages/backend",
+      "name": "Backend"
+    }
+  ],
+  "settings": {
+    "restoreTerminals.artificialDelayMilliseconds": 700,
+    "restoreTerminals.keepExistingTerminalsOpen": false,
+    "restoreTerminals.runOnStartup": true,
+    "restoreTerminals.terminals": [
+      {
+        "splitTerminals": [
+          {
+            "name": "App Terminal",
+            "commands": [
+              "cd ~/Projects/vizinn",
+              "npm run dev:backend"
+            ]
+          },
+          {
+            "name": "App Server",
+            "commands": [
+              "cd ~/Projects/vizinn",
+              "npm run dev:frontend"
+            ]
+          },
+          {
+            "name": "Monorepo Root",
+            "commands": [
+              "cd ~/Projects/vizinn",
+              "echo 'Vizinn Monorepo'"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+
+
 ## 📚 Learning Resources
 
 To help you get started with the technologies used in this project, we've compiled a list of useful resources:
@@ -293,5 +383,14 @@ To help you get started with the technologies used in this project, we've compil
 - [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [Pull Request Best Practices](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/)
+
+## 🚀 Recent Updates 14/05
+
+- Added comprehensive backend documentation
+- Improved monorepo structure and package management
+- Added Poetry configuration for Python dependency management
+- Enhanced script commands for better development experience
+- Updated monorepo package.json with more complete metadata and scripts
+- Added Python 3.13 requirement
 
 ## Transforming Neighborhoods, Connecting People!

@@ -2,19 +2,29 @@
   "name": "vizinn-monorepo",
   "private": true,
   "version": "1.0.0",
-  "description": "Vizinn monorepo containing backend application",
+  "description": "Vizinn monorepo - Platform that connects users in specific regions for buying, selling, and offering services",
   "scripts": {
     "dev:backend": "cd packages/backend && poetry run uvicorn backend.app:app --reload",
+    "dev:frontend": "cd packages/frontend-app && npm run start",
+    "dev:app": "cd packages/frontend-app && npm run start",
     "dev": "pnpm -r --workspace-concurrency Infinity run dev",
-    "start:backend": "cd packages/backend && poetry run uvicorn backend.app:app --reload",
-    "start": "./start-servers.sh"
+    "install:frontend": "cd packages/frontend-app && npm install",
+    "start": "echo \"Starting frontend and backend in separate terminals for best visibility\" && pnpm dev:frontend",
+    "start:alt": "concurrently \"pnpm dev:backend\" \"pnpm dev:frontend\"",
+    "start:unified": "node scripts/start-servers.js",
+    "start:manual": "echo \"Please run these commands in separate terminals:\" && echo \"1. pnpm dev:backend\" && echo \"2. pnpm dev:frontend\"",
+    "build:app": "cd packages/frontend-app && expo build",
+    "build": "pnpm -r --workspace-concurrency Infinity run build",
+    "lint:app": "cd packages/frontend-app && npm run lint",
+    "test:app": "cd packages/frontend-app && npm run test"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["marketplace", "community", "local-economy", "ecommerce", "services", "react-native", "fastapi", "monorepo"],
+  "author": "Vizinn Team",
   "license": "ISC",
   "engines": {
     "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
+    "pnpm": ">=8.0.0",
+    "python": ">=3.13.0"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

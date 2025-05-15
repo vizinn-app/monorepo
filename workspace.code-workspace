@@ -2,12 +2,16 @@
   "folders": [
     {
       "path": ".",
-      "name": "Vizinn Monorepo"
+      "name": "Vizinn Root"
+    },
+    {
+      "path": "./packages/frontend",
+      "name": "Frontend"
     },
     {
       "path": "./packages/backend",
-      "name": "Backend Vizinn"
-    },
+      "name": "Backend"
+    }
   ],
   "settings": {
     "restoreTerminals.artificialDelayMilliseconds": 700,
@@ -17,32 +21,24 @@
       {
         "splitTerminals": [
           {
-            "name": "Monorepo Root",
+            "name": "App Terminal",
             "commands": [
               "cd ~/Projects/vizinn",
-              "echo 'Vizinn Monorepo'"
+              "npm run dev:backend"
             ]
-          }
-        ]
-      },
-      {
-        "splitTerminals": [
+          },
           {
             "name": "App Server",
             "commands": [
               "cd ~/Projects/vizinn",
-              "pnpm dev:app"
+              "npm run dev:frontend"
             ]
           },
-        ]
-      },
-      {
-        "splitTerminals": [
           {
-            "name": "App Terminal",
+            "name": "Monorepo Root",
             "commands": [
               "cd ~/Projects/vizinn",
-              "git pull"
+              "echo 'Vizinn Monorepo'"
             ]
           }
         ]
