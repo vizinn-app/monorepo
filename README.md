@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/c1b97c6b-2c5b-4070-8afe-bb4d835bdba3" alt="image" />
+
+<img src="https://github.com/user-attachments/assets/53998944-43fc-4a23-8e45-cbb4d691c2c0" alt="image" />
 </p>
 
 **Vizinn** is an innovative, open-source platform that connects users in specific regions for buying, selling, and offering services in a practical and secure way. Our goal is to strengthen the local economy and create a reliable environment for transactions between neighbors and nearby communities. We welcome contributors from all backgrounds. Whether you're a seasoned developer or just starting out, this project offers a fantastic opportunity to collaborate and make a real impact.
