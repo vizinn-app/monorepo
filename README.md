@@ -46,11 +46,11 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - Users can define their area of interest, allowing transactions within their condominium or in strategic locations such as universities, shopping centers, and specific neighborhoods.
 
 ## 📌 Main Features
-- ✅ **Exclusive Marketplace** – Only verified residents or users in nearby regions can post listings and make purchases.
+- ✅ **Exclusive Marketplace** – Users in nearby regions can post listings and make purchases.
 - 🌟 **Featured Listings** – Users can pay to highlight their listings and increase visibility.
 - 📍 **Smart Location Filters** – Search for products and services within your condominium or specific areas.
 - 🔄 **Exchange and Donation Area** – Encouraging circular economy within communities.
-- 🏢 **Building Manager Panel** – Announcements, condominium rules, and event organization.
+- 🏢 **Building Manager Panel** – Announcements and event organization.
 - ⭐ **Ratings and Reputation** – Feedback system to increase trust between users.
 - 🔒 **Security and Moderation** – Reporting inappropriate listings and identity validation.
 - 💳 **Integrated Payment Option** – Facilitating secure transactions within the app.
