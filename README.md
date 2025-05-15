@@ -14,6 +14,11 @@ We believe in transparent, collaborative development and look forward to your co
 For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
 ### [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/f12c2d12-181a-4f49-800f-fc9eaccc1804" alt="image" />
+</p>
+
+
 ## 👾  Discord
 
 If you wish to support this initiative or be part of the project, contact us:
@@ -30,6 +35,9 @@ If you wish to support this initiative or be part of the project, contact us:
 - **Reduce Transport Costs**: Minimize logistics expenses by facilitating hyperlocal transactions
 - **Create New Market Opportunities**: Enable service providers to reach customers in their immediate vicinity
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/e40e02ea-1410-4389-b536-73750d60443d" alt="image" />
+</p>
 ### 👥 Social Impact
 - **Strengthen Community Bonds**: Foster connections between neighbors who might otherwise never interact
 - **Increase Safety and Trust**: Create a verified marketplace with accountability through the rating system
@@ -41,6 +49,9 @@ If you wish to support this initiative or be part of the project, contact us:
 - **Scalable to Different Contexts**: Adaptable to various settings from condominiums to university campuses
 - **Integration with Local Services**: Potential to connect with local delivery networks and payment systems
 - **Community-Led Development**: Features can evolve based on specific community needs
+
+![image](https://github.com/user-attachments/assets/79099157-9295-4023-99e9-91dcbbfd2aa2)
+
 
 By addressing these market gaps, **Vizinn** represents not just an app but a paradigm shift in how we think about community commerce and neighborhood interactions.
 
@@ -82,6 +93,12 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 - 🚀 CI/CD for automated deployment.
 - 📦 PNPM for monorepo package management.
 - 🐍 Poetry for Python dependency management.
+
+
+<p align="center">
+<img src="https://github.com/user-attachments/assets/29286fcd-2117-4695-81f0-99d7ac246c05" alt="image" />
+</p>
+
 
 ## Monorepo Structure
 
