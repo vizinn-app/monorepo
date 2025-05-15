@@ -29,15 +29,18 @@ If you wish to support this initiative or be part of the project, contact us:
 
 **Vizinn** is poised to transform local economies and community interactions in significant ways:
 
+<p align="center">
+<img src="https://github.com/user-attachments/assets/e40e02ea-1410-4389-b536-73750d60443d" alt="image" />
+</p>
+
+
 ### 🌱 Economic Impact
 - **Stimulate Local Commerce**: Reduce economic leakage by keeping transactions within communities
 - **Empower Small Entrepreneurs**: Lower barriers to entry for micro-entrepreneurs and service providers
 - **Reduce Transport Costs**: Minimize logistics expenses by facilitating hyperlocal transactions
 - **Create New Market Opportunities**: Enable service providers to reach customers in their immediate vicinity
 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/e40e02ea-1410-4389-b536-73750d60443d" alt="image" />
-</p>
+
 
 ### 👥 Social Impact
 - **Strengthen Community Bonds**: Foster connections between neighbors who might otherwise never interact
@@ -51,7 +54,10 @@ If you wish to support this initiative or be part of the project, contact us:
 - **Integration with Local Services**: Potential to connect with local delivery networks and payment systems
 - **Community-Led Development**: Features can evolve based on specific community needs
 
-![image](https://github.com/user-attachments/assets/79099157-9295-4023-99e9-91dcbbfd2aa2)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/79099157-9295-4023-99e9-91dcbbfd2aa2" alt="image" />
+</p>
+
 
 
 By addressing these market gaps, **Vizinn** represents not just an app but a paradigm shift in how we think about community commerce and neighborhood interactions.
