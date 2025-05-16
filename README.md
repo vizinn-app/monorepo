@@ -111,9 +111,9 @@ By addressing these market gaps, **Vizinn** represents not just an app but a par
 
 This monorepo contains the following packages:
 
-- `packages/backend`: Python API with FastAPI
-- `packages/frontend-app`: React Native mobile application
-- `packages/shared-ui`: UI utilities shared between projects
+- `apps/backend`: Python API with FastAPI
+- `apps/frontend-app`: React Native mobile application
+- `apps/shared-ui`: UI utilities shared between projects
 
 ## 🚀 Contributing
 
@@ -179,7 +179,7 @@ Once your PR is accepted:
 pnpm install
 
 # Install backend dependencies (Python)
-cd packages/backend
+cd apps/backend
 poetry install
 ```
 
@@ -277,7 +277,7 @@ poetry add <package-name>
 poetry run uvicorn backend.app:app --reload
 ```
 
-For detailed backend setup instructions, see the [backend README](/packages/backend/README.md).
+For detailed backend setup instructions, see the [backend README](/apps/backend/README.md).
 
 ## 🛠️ VS Code Workspace Setup
 
@@ -326,11 +326,11 @@ If you want to customize the workspace configuration, you can edit the `workspac
       "name": "Vizinn Root"
     },
     {
-      "path": "./packages/frontend-app", // Ajuste para corresponder à estrutura atual
+      "path": "./apps/frontend-app", // Ajuste para corresponder à estrutura atual
       "name": "Frontend"
     },
     {
-      "path": "./packages/backend",
+      "path": "./apps/backend",
       "name": "Backend"
     }
   ],
