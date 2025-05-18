@@ -1,4 +1,5 @@
 import random
+import os
 from http import HTTPStatus
 
 from fastapi import HTTPException
@@ -15,6 +16,10 @@ client = Client(Settings().account_sid, Settings().auth_token)
 
 def send_sms(db_user: User, session: Session):
     verification_code = f'{random.randint(100000, 999999)}'
+
+    environment = os.getenv("ENVIRONMENT", "development")
+    if environment.lower() == "development":
+        print(f"DEBUG - Verification code for {db_user.email}: {verification_code}")
 
     user_verification = session.scalar(
         select(UserVerification).where(UserVerification.user_id == db_user.id)
@@ -40,7 +45,10 @@ def send_sms(db_user: User, session: Session):
             to=f'+55{db_user.phone}',
         )
     except Exception as e:
-        raise HTTPException(
-            status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
-            detail=f'Failed to send SMS: {str(e)}',
-        )
+        if environment.lower() == "development":
+            print(f"WARNING - SMS would be sent in production: {str(e)}")
+        else:
+            raise HTTPException(
+                status_code=HTTPStatus.INTERNAL_SERVER_ERROR,
+                detail=f'Failed to send SMS: {str(e)}',
+            )
