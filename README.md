@@ -305,7 +305,7 @@ Before using the workspace configuration, install the following VS Code extensio
 
 ### Automatic Terminal Configuration
 
-Com esta configuração, ao abrir o workspace, três terminais serão abertos automaticamente:
+With this configuration, when you open the workspace, three terminals will automatically open:
 
 1. **App Terminal** - Executa o servidor backend (`npm run dev:backend`)
 2. **App Server** - Executa o aplicativo frontend (`npm run dev:frontend`)
