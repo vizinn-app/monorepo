@@ -44,6 +44,19 @@ export type GeneralApiProblem =
  * @param response The api response.
  */
 export function getGeneralApiProblem(response: ApiResponse<any>): GeneralApiProblem | null {
+  // Log verbose information in development
+  if (__DEV__) {
+    console.log("API Response Problem:", {
+      problem: response.problem,
+      status: response.status,
+      data: response.data,
+      config: {
+        url: response.config?.url,
+        method: response.config?.method,
+      },
+    })
+  }
+
   switch (response.problem) {
     case "CONNECTION_ERROR":
       return { kind: "cannot-connect", temporary: true }
