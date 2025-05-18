@@ -8,13 +8,13 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
 import { observer } from "mobx-react-lite"
-import * as Screens from "@/screens"
+import * as Screens from "../screens"
 import Config from "../config"
 import { useStores } from "../models"
 import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
-import { useAppTheme, useThemeProvider } from "@/utils/useAppTheme"
+import { useAppTheme, useThemeProvider } from "../utils/useAppTheme"
 import { ComponentProps } from "react"
-import { BottomMenu } from "@/components/Menu/BottomMenu"
+import { BottomMenu } from "../components/Menu/BottomMenu"
 
 /**
  * Este tipo permite que o TypeScript saiba quais rotas estão definidas neste navegador,
@@ -96,13 +96,17 @@ export const AppNavigator = observer(function AppNavigator(props: NavigationProp
   const { themeScheme, navigationTheme, setThemeContextOverride, ThemeProvider } =
     useThemeProvider()
 
+  const {
+    authenticationStore: { isAuthenticated },
+  } = useStores()
+
   useBackButtonHandler((routeName) => exitRoutes.includes(routeName))
 
   return (
     <ThemeProvider value={{ themeScheme, setThemeContextOverride }}>
       <NavigationContainer ref={navigationRef} theme={navigationTheme} {...props}>
         <AppStack />
-        <BottomMenu />
+        {isAuthenticated && <BottomMenu />}
       </NavigationContainer>
     </ThemeProvider>
   )
