@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import { Text as RNText, TextProps as RNTextProps } from "react-native"
 import { ReactNode } from "react"
 import { typography } from "@/theme/typography"

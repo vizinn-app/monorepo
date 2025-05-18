@@ -37,8 +37,23 @@ export class Api {
       timeout: this.config.timeout,
       headers: {
         Accept: "application/json",
+        "Content-Type": "application/json",
       },
     })
+  }
+
+  /**
+   * Sets the auth token for authenticated requests
+   */
+  setAuthToken(token: string) {
+    this.apisauce.setHeader("Authorization", `Bearer ${token}`)
+  }
+
+  /**
+   * Clears the auth token
+   */
+  clearAuthToken() {
+    this.apisauce.deleteHeader("Authorization")
   }
 
   /**

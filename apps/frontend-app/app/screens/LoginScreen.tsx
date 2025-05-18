@@ -1,9 +1,12 @@
-import { TextInput, TouchableOpacity } from "react-native"
+/* eslint-disable import/no-unresolved */
+import { ActivityIndicator, Alert, TextInput, TouchableOpacity } from "react-native"
 import { observer } from "mobx-react-lite"
 import { Image, View } from "react-native"
 import { useForm, Controller } from "react-hook-form"
 import { useNavigation } from "@react-navigation/native"
 import { Text } from "@/components"
+import { useAuth } from "../hooks/useAuth"
+import { useState } from "react"
 
 const logoDark = require("../../assets/images/logos/logo-dark.png")
 const pin = require("../../assets/images/login-pin.png")
@@ -16,13 +19,58 @@ export const LoginScreen = observer(function LoginScreen(_props) {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+    getValues,
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+      verificationCode: "",
+    }
+  })
+
+  const [codeSent, setCodeSent] = useState(false)
+  const [showVerificationInput, setShowVerificationInput] = useState(false)
 
   const navigation = useNavigation()
+  const { isLoading, error, requestVerificationCode, verifyCode, resendVerificationCode } = useAuth()
 
-  const onSubmit = (data: any) => {
-    console.log(data)
-    navigation.navigate("Home" as never)
+  const onSubmit = async (data: any) => {
+    if (!codeSent) {
+      // Primeiro passo - solicitar o código de verificação
+      const success = await requestVerificationCode(data.email)
+      if (success) {
+        setCodeSent(true)
+        setShowVerificationInput(true)
+        Alert.alert("Código enviado", "Um código de verificação foi enviado para seu telefone cadastrado")
+      } else if (error) {
+        Alert.alert("Erro", error)
+      }
+    } else {
+      // Segundo passo - verificar o código
+      const success = await verifyCode(data.email, data.verificationCode)
+      if (success) {
+        // Login concluído com sucesso
+        navigation.navigate("Home" as never)
+      } else if (error) {
+        Alert.alert("Erro", error)
+      }
+    }
+  }
+
+  const handleResendCode = async () => {
+    const email = getValues().email
+
+    if (!email) {
+      Alert.alert("Erro", "Por favor, insira seu e-mail")
+      return
+    }
+
+    const success = await resendVerificationCode(email)
+    if (success) {
+      Alert.alert("Código reenviado", "Um novo código de verificação foi enviado para seu telefone")
+    } else if (error) {
+      Alert.alert("Erro", error)
+    }
   }
 
   return (
@@ -50,40 +98,84 @@ export const LoginScreen = observer(function LoginScreen(_props) {
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
               <TextInput
-                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
+                className={`${errors.email ? "border border-red-600/50" : "border border-white/10"} rounded-full p-4 text-white/50`}
                 onBlur={onBlur}
                 onChangeText={onChange}
                 value={value}
                 placeholder="email"
                 placeholderTextColor="#888888"
+                autoCapitalize="none"
+                keyboardType="email-address"
               />
             )}
-            name="locais"
+            name="email"
             rules={{ required: "Este campo é obrigatório" }}
           />
-          <Controller
-            control={control}
-            render={({ field: { onChange, onBlur, value } }) => (
-              <TextInput
-                className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full  p-4 text-white/50  `}
-                onBlur={onBlur}
-                onChangeText={onChange}
-                value={value}
-                placeholder="senha"
-                secureTextEntry
-                placeholderTextColor="#888888"
-              />
-            )}
-            name="password"
-            rules={{ required: "Este campo é obrigatório" }}
-          />
+
+          {showVerificationInput ? (
+            <Controller
+              control={control}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  className={`${errors.verificationCode ? "border border-red-600/50" : "border border-white/10"} rounded-full p-4 text-white/50`}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                  placeholder="código de verificação"
+                  placeholderTextColor="#888888"
+                  keyboardType="number-pad"
+                />
+              )}
+              name="verificationCode"
+              rules={{ required: "Este campo é obrigatório" }}
+            />
+          ) : (
+            <Controller
+              control={control}
+              render={({ field: { onChange, onBlur, value } }) => (
+                <TextInput
+                  className={`${errors.password ? "border border-red-600/50" : "border border-white/10"} rounded-full p-4 text-white/50`}
+                  onBlur={onBlur}
+                  onChangeText={onChange}
+                  value={value}
+                  placeholder="senha"
+                  secureTextEntry
+                  placeholderTextColor="#888888"
+                />
+              )}
+              name="password"
+              rules={{ required: !showVerificationInput }}
+            />
+          )}
+
+          {showVerificationInput && (
+            <TouchableOpacity
+              className="mt-1"
+              onPress={handleResendCode}
+              disabled={isLoading}
+            >
+              <Text className="text-light text-center text-sm">Reenviar código</Text>
+            </TouchableOpacity>
+          )}
 
           <TouchableOpacity
             className="bg-light rounded-full my-2 px-4 py-2 mx-auto flex justify-center items-center min-w-[166px]"
             onPress={handleSubmit(onSubmit)}
+            disabled={isLoading}
           >
-            <Text className="text-dark font-bold">entrar agora</Text>
+            {isLoading ? (
+              <ActivityIndicator color="#333333" size="small" />
+            ) : (
+              <Text className="text-dark font-bold">
+                {showVerificationInput ? "verificar código" : "entrar agora"}
+              </Text>
+            )}
           </TouchableOpacity>
+
+          {error && (
+            <Text className="text-red-500 text-center">{error}</Text>
+          )}
+
           <View className="flex gap-1 mt-1">
             <Text className="text-white max-w-[275px] block mx-auto mt-auto">
               ou faça login com <Text className="font-bold">google</Text>
