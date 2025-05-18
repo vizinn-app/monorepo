@@ -326,7 +326,7 @@ If you want to customize the workspace configuration, you can edit the `workspac
       "name": "Vizinn Root"
     },
     {
-      "path": "./apps/frontend-app", // Ajuste para corresponder à estrutura atual
+      "path": "./apps/frontend-app", // Adjust to match current structure
       "name": "Frontend"
     },
     {
@@ -342,24 +342,24 @@ If you want to customize the workspace configuration, you can edit the `workspac
       {
         "splitTerminals": [
           {
-            "name": "App Terminal", // Terminal para o backend
+            "name": "App Terminal", // Backend Terminal
             "commands": [
               "cd ~/Projects/vizinn",
-              "npm run dev:backend" // Executa o servidor FastAPI
+              "npm run dev:backend" // Starts the FastAPI Server
             ]
           },
           {
-            "name": "App Server", // Terminal para o frontend
+            "name": "App Server", // Frontend Terminal
             "commands": [
               "cd ~/Projects/vizinn",
-              "npm run dev:frontend" // Executa o app React Native
+              "npm run dev:frontend" // Starts React Native app with Expo
             ]
           },
           {
-            "name": "Monorepo Root", // Terminal adicional para outros comandos
+            "name": "Monorepo Root", // Additional terminal for other commands 
             "commands": [
               "cd ~/Projects/vizinn",
-              "echo 'Vizinn Monorepo'"
+              "git pull"
             ]
           }
         ]
