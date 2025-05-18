@@ -19,11 +19,12 @@ For a detailed contribution guide, check out our [CONTRIBUTING](https://github.c
 </p>
 
 
-## 👾  Discord
+## 👾  Socials
 
 If you wish to support this initiative or be part of the project, contact us:
 
-🔗  **[Link](https://discord.gg/GkfDbTY6xu)**
+🔗  **[Discord](https://discord.gg/GkfDbTY6xu)**
+🔗  **[WhatsApp Group](https://chat.whatsapp.com/IkF1YGczvQGL9wxRxp8O7K)**
 
 ## 💼 Market Impact
 
