@@ -6,5 +6,5 @@
  * https://reactnative.dev/docs/security#storing-sensitive-info
  */
 export default {
-  API_URL: "https://api.vizinn.com",
+  API_URL: "https://api.vizinn.com.br",
 }

@@ -9,7 +9,7 @@ This document explains how the Vizinn frontend app connects to the backend API.
 - Connection configuration is in `apps/frontend-app/app/config/config.dev.ts`
 
 ### Production Environment
-- The frontend uses `https://api.vizinn.com` as the API URL in production
+- The frontend uses `https://api.vizinn.com.br` as the API URL in production
 - Connection configuration is in `apps/frontend-app/app/config/config.prod.ts`
 
 ## API Endpoints
