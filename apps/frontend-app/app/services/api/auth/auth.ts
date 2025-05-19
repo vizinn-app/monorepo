@@ -1,6 +1,6 @@
 /**
- * This AuthAPI class handles all authentication-related API requests
- * to the backend server.
+ * This Auth module handles all authentication-related API requests
+ * to the backend.
  */
 import { ApiResponse, ApisauceInstance, create } from "apisauce"
 import Config from "../../../config"
@@ -18,7 +18,7 @@ import {
  */
 export const DEFAULT_AUTH_API_CONFIG: AuthApiConfig = {
   url: Config.API_URL,
-  timeout: 10000,
+  timeout: 30000,
 }
 
 /**
@@ -62,7 +62,7 @@ export class AuthAPI {
    */
   async login(data: LoginRequest): Promise<{ kind: "ok"; message: string } | GeneralApiProblem> {
     // Make the API call
-    const response: ApiResponse<MessageResponse> = await this.apisauce.post("/auth/login", data)
+    const response: ApiResponse<MessageResponse> = await this.apisauce.post("/auth/login/", data)
 
     // Handle API errors
     if (!response.ok) {
@@ -92,7 +92,10 @@ export class AuthAPI {
     data: VerifyCodeRequest,
   ): Promise<{ kind: "ok"; token: string } | GeneralApiProblem> {
     // Make the API call
-    const response: ApiResponse<TokenResponse> = await this.apisauce.post("/auth/verify-code", data)
+    const response: ApiResponse<TokenResponse> = await this.apisauce.post(
+      "/auth/verify-code/",
+      data,
+    )
 
     // Handle API errors
     if (!response.ok) {
@@ -130,7 +133,7 @@ export class AuthAPI {
   ): Promise<{ kind: "ok"; message: string } | GeneralApiProblem> {
     // Make the API call
     const response: ApiResponse<MessageResponse> = await this.apisauce.post(
-      "/auth/resend-code",
+      "/auth/resend-code/",
       data,
     )
 

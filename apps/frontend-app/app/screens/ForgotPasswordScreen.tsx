@@ -1,8 +1,8 @@
-import { Text, TextInput, TouchableOpacity } from "react-native"
-import { observer } from "mobx-react-lite"
-import { Image, View } from "react-native"
-import { useForm, Controller } from "react-hook-form"
+import { emailValidationRules } from "@/utils/validationRules"
 import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
+import { Controller, useForm } from "react-hook-form"
+import { Image, Text, TextInput, TouchableOpacity, View } from "react-native"
 
 const logoLight = require("../../assets/images/logos/logo-light.png")
 const pin = require("../../assets/images/login-pin.png")
@@ -14,7 +14,11 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm({
+    defaultValues: {
+      email: "",
+    },
+  })
 
   const navigation = useNavigation()
 
@@ -53,10 +57,12 @@ export const ForgotPasswordScreen = observer(function ForgotPassword(_props) {
                 value={value}
                 placeholder="email"
                 placeholderTextColor="#888888"
+                keyboardType="email-address"
+                autoCapitalize="none"
               />
             )}
-            name="locais"
-            rules={{ required: "Este campo é obrigatório" }}
+            name="email"
+            rules={emailValidationRules}
           />
 
           <Text className="text-white max-w-[275px] block mx-auto mt-auto text-center">

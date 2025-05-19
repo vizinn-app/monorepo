@@ -20,7 +20,7 @@ export const useAuth = () => {
 
     try {
       const loginData: LoginRequest = { email }
-      console.log("Sending login request to:", `${Config.API_URL}/auth/login`)
+      console.log("Sending login request to:", `${Config.API_URL}/auth/login/`)
       const result = await authApi.login(loginData)
 
       if (result.kind !== "ok") {
@@ -52,7 +52,7 @@ export const useAuth = () => {
         email,
         verification_code: code,
       }
-      console.log("Sending verify code request to:", `${Config.API_URL}/auth/verify-code`)
+      console.log("Sending verify code request to:", `${Config.API_URL}/auth/verify-code/`)
       const result = await authApi.verifyCode(verifyData)
 
       if (result.kind !== "ok") {
@@ -83,7 +83,7 @@ export const useAuth = () => {
 
     try {
       const loginData: LoginRequest = { email }
-      console.log("Sending resend code request to:", `${Config.API_URL}/auth/resend-code`)
+      console.log("Sending resend code request to:", `${Config.API_URL}/auth/resend-code/`)
       const result = await authApi.resendCode(loginData)
 
       if (result.kind !== "ok") {
@@ -141,7 +141,7 @@ export const useAuth = () => {
 /**
  * Maps API error types to user-friendly messages
  */
-function mapErrorToMessage(errorKind: string): string {
+export function mapErrorToMessage(errorKind: string): string {
   switch (errorKind) {
     case "unauthorized":
       return "Invalid credentials"
@@ -154,9 +154,9 @@ function mapErrorToMessage(errorKind: string): string {
     case "server":
       return "Server error, please try again later"
     case "timeout":
-      return "Request timed out, please check your connection"
+      return "A operação demorou muito tempo. Isso pode acontecer durante o registro devido ao envio de SMS. Por favor, tente novamente e verifique se você está conectado a uma rede estável."
     case "cannot-connect":
-      return "Cannot connect to server, please check your connection"
+      return "Não foi possível conectar ao servidor. Verifique sua conexão com a internet e tente novamente."
     case "bad-data":
       return "Invalid data received from server"
     default:

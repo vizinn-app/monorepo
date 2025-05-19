@@ -11,7 +11,8 @@
 - 🌐 Make an impact on local communities through technology
 
 We believe in transparent, collaborative development and look forward to your contributions! <br/>
-For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.
+For a detailed contribution guide, check out our [CONTRIBUTING](https://github.com/adamsnows/vizinn/blob/main/CONTRIBUTING.md) guide.<br/>
+For information about frontend-backend connectivity, see our [FRONTEND_BACKEND_DOCUMENTATION](https://github.com/adamsnows/vizinn/blob/main/FRONTEND_BACKEND_DOCUMENTATION.md).
 ### [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
 <p align="center">
@@ -23,7 +24,7 @@ For a detailed contribution guide, check out our [CONTRIBUTING](https://github.c
 
 If you wish to support this initiative or be part of the project, contact us:
 
-- 🔗  **[Discord](https://discord.gg/GkfDbTY6xu)**  
+- 🔗  **[Discord](https://discord.gg/GkfDbTY6xu)**
 - 🔗  **[WhatsApp Group](https://chat.whatsapp.com/IkF1YGczvQGL9wxRxp8O7K)**
 
 ## 💼 Market Impact
@@ -357,7 +358,7 @@ If you want to customize the workspace configuration, you can edit the `workspac
             ]
           },
           {
-            "name": "Monorepo Root", // Additional terminal for other commands 
+            "name": "Monorepo Root", // Additional terminal for other commands
             "commands": [
               "cd ~/Projects/vizinn",
               "git pull"
@@ -397,8 +398,19 @@ To help you get started with the technologies used in this project, we've compil
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [Pull Request Best Practices](https://github.blog/2015-01-21-how-to-write-the-perfect-pull-request/)
 
-## 🚀 Recent Updates 14/05
+## 🚀 Recent Updates
 
+### May 18, 2025
+- Fixed frontend-backend connectivity issues
+- Configured PostgreSQL local database connection
+- Resolved CORS configuration issues
+- Fixed endpoint URL formats for all API calls (added trailing slashes)
+- Created unified documentation for frontend-backend connection
+- Increased API timeout for registration process
+- Implemented retry mechanism for handling API timeouts
+- Added detailed error messages for common connectivity issues
+
+### May 14, 2025
 - Added comprehensive backend documentation
 - Improved monorepo structure and package management
 - Added Poetry configuration for Python dependency management

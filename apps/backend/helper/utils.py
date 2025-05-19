@@ -39,12 +39,21 @@ def send_sms(db_user: User, session: Session):
     session.commit()
 
     try:
+        # Em ambiente de desenvolvimento, podemos pular o envio real do SMS
+        environment = os.getenv("ENVIRONMENT", "development")
+        if environment.lower() == "development":
+            print(f"DEBUG - Verification code for {db_user.email}: {verification_code}")
+            print(f"DEBUG - SMS would be sent to +55{db_user.phone} in production")
+            return
+
+        # Apenas tenta enviar SMS em produção
         client.messages.create(
             body=f'Your verification code is: {verification_code}',
             from_=Settings().twilio_phone_number,
             to=f'+55{db_user.phone}',
         )
     except Exception as e:
+        # Loga o erro, mas não falha a operação em ambiente de desenvolvimento
         if environment.lower() == "development":
             print(f"WARNING - SMS would be sent in production: {str(e)}")
         else:

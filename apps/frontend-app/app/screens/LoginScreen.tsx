@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
 import { Text } from "@/components"
+import { emailValidationRules, verificationCodeRules } from "@/utils/validationRules"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { useState } from "react"
@@ -108,7 +109,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
               />
             )}
             name="email"
-            rules={{ required: "Este campo é obrigatório" }}
+            rules={emailValidationRules}
           />
 
           {showVerificationInput && (
@@ -126,7 +127,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
                 />
               )}
               name="verificationCode"
-              rules={{ required: "Este campo é obrigatório" }}
+              rules={verificationCodeRules}
             />
           )}
 
@@ -137,7 +138,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
           )}
 
           <TouchableOpacity
-            className="bg-light rounded-full mt-6 mb-2 px-4 py-2 mx-auto flex justify-center items-center min-w-[166px]"
+            className="bg-light rounded-full mt-3 mb-1 px-4 py-3 mx-auto flex justify-center items-center min-w-[166px]"
             onPress={handleSubmit(onSubmit)}
             disabled={isLoading}
           >

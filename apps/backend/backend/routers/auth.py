@@ -20,7 +20,7 @@ router = APIRouter(prefix='/auth', tags=['auth'])
 T_Session = Annotated[Session, Depends(get_session)]
 
 
-@router.post('/login', response_model=Message)
+@router.post('/login/', response_model=Message)
 def login_request(
     form_data: LoginSchema,
     session: T_Session,
@@ -35,7 +35,7 @@ def login_request(
     return {'message': 'Verification code sent'}
 
 
-@router.post('/verify-code', response_model=Token)
+@router.post('/verify-code/', response_model=Token)
 def verify_code(data: verifyCodeSchema, session: T_Session):
     user = session.scalar(select(User).where(User.email == data.email))
 
@@ -66,7 +66,7 @@ def verify_code(data: verifyCodeSchema, session: T_Session):
     return {'access_token': access_token, 'token_type': 'bearer'}
 
 
-@router.post('/resend-code', response_model=Message)
+@router.post('/resend-code/', response_model=Message)
 def resend_code(data: LoginSchema, session: T_Session):
     user = session.scalar(select(User).where(User.email == data.email))
 
