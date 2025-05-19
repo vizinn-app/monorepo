@@ -5,11 +5,11 @@
       "name": "Vizinn Root"
     },
     {
-      "path": "./packages/frontend-app",
+      "path": "./apps/frontend-app",
       "name": "Frontend"
     },
     {
-      "path": "./packages/backend",
+      "path": "./apps/backend",
       "name": "Backend"
     }
   ],

@@ -1,30 +1,55 @@
-# Welcome to your new ignited app!
+# Vizinn Frontend Application
 
-> The latest and greatest boilerplate for Infinite Red opinions
-
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
-
-- [Quick start documentation](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/Boilerplate.md)
-- [Full documentation](https://github.com/infinitered/ignite/blob/master/docs/README.md)
+This is the mobile application for Vizinn, built with React Native and Expo following the Ignite boilerplate.
 
 ## Getting Started
 
 ```bash
+# Install dependencies
 npm install
+
+# Start the development server
 npm run start
 ```
 
-To make things work on your local simulator, or on your phone, you need first to [run `eas build`](https://github.com/infinitered/ignite/blob/master/docs/expo/EAS.md). We have many shortcuts on `package.json` to make it easier:
+To run the app on your local simulator or physical device:
 
 ```bash
-npm run build:ios:sim # build for ios simulator
-npm run build:ios:dev # build for ios device
-npm run build:ios:prod # build for ios device
+# Build for iOS simulator
+npm run build:ios:sim
+
+# Build for iOS device (development)
+npm run build:ios:dev
+
+# Build for iOS device (production)
+npm run build:ios:prod
+
+# Build for Android
+npm run build:android
 ```
+
+### Connection with Backend
+
+For this application to work properly, it needs to connect to the Vizinn backend API. The connection details are configured in:
+
+- `app/config/config.dev.ts` - Development environment
+- `app/config/config.prod.ts` - Production environment
+
+For more details about the frontend-backend connection, see the [FRONTEND_BACKEND_DOCUMENTATION.md](../../FRONTEND_BACKEND_DOCUMENTATION.md) in the root of the project.
+
+### Configuration for Different Environments
+
+When testing on different devices:
+
+1. **Android Emulator**: Use `API_URL: "http://10.0.2.2:8000"`
+2. **iOS Simulator**: Use `API_URL: "http://localhost:8000"`
+3. **Physical Device**: Use your local IP, e.g., `API_URL: "http://192.168.0.3:8000"`
 
 ### `./assets` directory
 
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
+### Assets Directory
+
+This directory organizes all application assets:
 
 ```tree
 assets
@@ -32,31 +57,57 @@ assets
 └── images
 ```
 
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
+**Icons**: For UI elements like buttons and navigation.
+**Images**: For background images, logos, and other graphics.
 
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/boilerplate/app/components/Icon.md).
+### Authentication Flow
 
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
+The application implements a verification code-based authentication system:
 
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
+1. User enters their email
+2. System sends a verification code to the user's phone
+3. User enters the code to authenticate
+4. JWT token is stored for subsequent authenticated requests
 
-How to use your `icon` or `image` assets:
+### Timeout Handling
 
-```typescript
-import { Image } from 'react-native';
-
-const MyComponent = () => {
-  return (
-    <Image source={require('../assets/images/my_image.png')} />
-  );
-};
-```
+For registration and authentication processes that might take longer due to SMS sending:
+- Default timeout: 30 seconds
+- Extended timeout for retries: 60 seconds
 
 ## Running Maestro end-to-end tests
 
 Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe.
+
+## Testing
+
+### Manual Testing
+
+To verify connectivity with the backend:
+```bash
+cd ../
+./test-connection.sh
+```
+
+This script will check all API endpoints and CORS configuration.
+
+## Troubleshooting
+
+If you encounter connection issues:
+
+1. Verify the backend server is running
+2. Check network connectivity
+3. Ensure API URL configuration matches your environment
+4. Check for CORS issues using the `test-connection.sh` script
+
+## Recent Updates (May 18, 2025)
+
+- Fixed frontend-backend connectivity issues
+- Resolved CORS configuration problems
+- Fixed endpoint URL formats (added trailing slashes)
+- Increased API timeout for registration process
+- Implemented retry mechanism for API timeouts
+- Added detailed error messages
 
 ## Next Steps
 

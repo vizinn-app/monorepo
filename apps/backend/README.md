@@ -1,55 +1,55 @@
-# Instalação e Execução da API
+# API Installation and Execution
 
-Este guia explica como configurar e rodar a API em um ambiente Python utilizando `poetry` para gestão de dependências.
+This guide explains how to set up and run the API in a Python environment using `poetry` for dependency management.
 
-## Requisitos
+## Requirements
 
-Certifique-se de ter instalado:
+Make sure you have the following installed:
 - Python 3.13
-- `pipx` para instalação isolada de ferramentas
-- `poetry` para gestão de dependências
+- `pipx` for isolated tool installation
+- `poetry` for dependency management
 
-## Instalação
+## Installation
 
-1. Instale o `pipx`:
+1. Install `pipx`:
    ```sh
    pip install --user pipx
    pipx ensurepath
    ```
 
-2. Instale o `poetry`:
+2. Install `poetry`:
    ```sh
    pipx install poetry
    ```
 
-3. Adicione o plugin de shell do `poetry`:
+3. Add the poetry shell plugin:
    ```sh
    poetry self add poetry-plugin-shell
    ```
 
-4. Crie um ambiente virtual e ative-o:
+4. Create a virtual environment and activate it:
    ```sh
    poetry shell
    ```
 
-5. Certifique-se de que está utilizando a versão correta do Python:
+5. Make sure you're using the correct Python version:
    ```sh
    poetry python install 3.13
    poetry env use 3.13
    ```
 
-6. Instale as dependências do projeto:
+6. Install project dependencies:
    ```sh
    poetry install
    ```
 
-## Execução da API
+## Running the API
 
-Para rodar a API, utilize o seguinte comando:
+To run the API, use the following command:
 
 ```sh
 task run
 ```
 
-Agora sua API está rodando e pronta para uso!
+Now your API is running and ready to use!
 

@@ -1,17 +1,22 @@
 /* eslint-disable react-native/no-inline-styles */
-import { Text } from "@/components"
-import { observer } from "mobx-react-lite"
-import { Image, TextInput, TouchableOpacity, View } from "react-native"
-import { Controller, useForm } from "react-hook-form"
-import adam from "@/assets/images/adam.jpeg"
 import settingsIcon from "@/assets/icons/settings.png"
+import adam from "@/assets/images/adam.jpeg"
+import { Text } from "@/components"
+import { searchValidationRules } from "@/utils/validationRules"
 import { useNavigation } from "@react-navigation/native"
+import { observer } from "mobx-react-lite"
+import { Controller, useForm } from "react-hook-form"
+import { Image, TextInput, TouchableOpacity, View } from "react-native"
 
 export const TopMenu = observer(function HomeScreen(_props) {
   const {
     control,
     formState: { errors },
-  } = useForm()
+  } = useForm({
+    defaultValues: {
+      locais: "",
+    },
+  })
   const navigation = useNavigation()
 
   return (
@@ -47,7 +52,7 @@ export const TopMenu = observer(function HomeScreen(_props) {
             />
           )}
           name="locais"
-          rules={{ required: "Este campo é obrigatório" }}
+          rules={searchValidationRules}
         />
         <View className="max-h-[32px] border-[#D2D2D2] h-full border-l-2" />
         <View className="text-[#888888] ps-10">

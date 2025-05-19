@@ -1,6 +1,6 @@
 /**
- * This AuthAPI class handles all authentication-related API requests
- * to the backend server.
+ * This Auth module handles all authentication-related API requests
+ * to the backend.
  */
 import { ApiResponse, ApisauceInstance, create } from "apisauce"
 import Config from "../../../config"
@@ -10,7 +10,7 @@ import {
   LoginRequest,
   MessageResponse,
   TokenResponse,
-  VerifyCodeRequest
+  VerifyCodeRequest,
 } from "./auth.types"
 
 /**
@@ -18,7 +18,7 @@ import {
  */
 export const DEFAULT_AUTH_API_CONFIG: AuthApiConfig = {
   url: Config.API_URL,
-  timeout: 10000,
+  timeout: 30000,
 }
 
 /**
@@ -37,7 +37,7 @@ export class AuthAPI {
       baseURL: this.config.url,
       timeout: this.config.timeout,
       headers: {
-        Accept: "application/json",
+        "Accept": "application/json",
         "Content-Type": "application/json",
       },
     })
@@ -62,14 +62,14 @@ export class AuthAPI {
    */
   async login(data: LoginRequest): Promise<{ kind: "ok"; message: string } | GeneralApiProblem> {
     // Make the API call
-    const response: ApiResponse<MessageResponse> = await this.apisauce.post(
-      "/auth/login/",
-      data,
-    )
+    const response: ApiResponse<MessageResponse> = await this.apisauce.post("/auth/login/", data)
 
     // Handle API errors
     if (!response.ok) {
       const problem = getGeneralApiProblem(response)
+      if (__DEV__) {
+        console.error("API Error (login):", response.problem, response.status, response.data)
+      }
       if (problem) return problem
     }
 
@@ -88,7 +88,9 @@ export class AuthAPI {
   /**
    * Verifies the code sent to the user
    */
-  async verifyCode(data: VerifyCodeRequest): Promise<{ kind: "ok"; token: string } | GeneralApiProblem> {
+  async verifyCode(
+    data: VerifyCodeRequest,
+  ): Promise<{ kind: "ok"; token: string } | GeneralApiProblem> {
     // Make the API call
     const response: ApiResponse<TokenResponse> = await this.apisauce.post(
       "/auth/verify-code/",
@@ -98,6 +100,9 @@ export class AuthAPI {
     // Handle API errors
     if (!response.ok) {
       const problem = getGeneralApiProblem(response)
+      if (__DEV__) {
+        console.error("API Error (verify code):", response.problem, response.status, response.data)
+      }
       if (problem) return problem
     }
 
@@ -123,7 +128,9 @@ export class AuthAPI {
   /**
    * Resend verification code
    */
-  async resendCode(data: LoginRequest): Promise<{ kind: "ok"; message: string } | GeneralApiProblem> {
+  async resendCode(
+    data: LoginRequest,
+  ): Promise<{ kind: "ok"; message: string } | GeneralApiProblem> {
     // Make the API call
     const response: ApiResponse<MessageResponse> = await this.apisauce.post(
       "/auth/resend-code/",
@@ -133,6 +140,9 @@ export class AuthAPI {
     // Handle API errors
     if (!response.ok) {
       const problem = getGeneralApiProblem(response)
+      if (__DEV__) {
+        console.error("API Error (resend code):", response.problem, response.status, response.data)
+      }
       if (problem) return problem
     }
 
