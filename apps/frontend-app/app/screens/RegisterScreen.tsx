@@ -48,16 +48,12 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
     const success = await registerUser(userData)
 
     if (success) {
-      Alert.alert(
-        "Cadastro realizado com sucesso!",
-        "Um código de verificação foi enviado para seu telefone. Faça login para acessar sua conta.",
-        [
-          {
-            text: "Ir para Login",
-            onPress: () => navigation.navigate("Login" as never),
-          },
-        ],
-      )
+      Alert.alert("Sucesso!", "Seu código de verificação foi enviado ao telefone cadastrado!", [
+        {
+          text: "Ir para Login",
+          onPress: () => navigation.navigate("Login" as never),
+        },
+      ])
     } else if (error) {
       Alert.alert("Erro no cadastro", error)
     }

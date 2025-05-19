@@ -14,6 +14,11 @@ const icon = require("../../assets/images/new-icons/brillant-icon.png")
 const gradientBg = require("../../assets/images/bg-linear.png")
 const googleIcon = require("../../assets/images/new-icons/google.png")
 
+type UserRegistrationForm = {
+  email: string
+  verificationCode: string
+}
+
 export const LoginScreen = observer(function LoginScreen(_props) {
   const {
     control,
@@ -34,7 +39,7 @@ export const LoginScreen = observer(function LoginScreen(_props) {
   const { isLoading, error, requestVerificationCode, verifyCode, resendVerificationCode } =
     useAuth()
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: UserRegistrationForm) => {
     if (!codeSent) {
       const success = await requestVerificationCode(data.email)
       if (success) {

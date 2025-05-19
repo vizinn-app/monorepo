@@ -144,22 +144,22 @@ export const useAuth = () => {
 export function mapErrorToMessage(errorKind: string): string {
   switch (errorKind) {
     case "unauthorized":
-      return "Invalid credentials"
+      return "Credenciais inválidas"
     case "forbidden":
-      return "You don't have permission to perform this action"
+      return "Você não tem permissão para realizar esta ação"
     case "not-found":
-      return "Resource not found"
+      return "Recurso não encontrado"
     case "rejected":
-      return "Request was rejected"
+      return "Requisição foi rejeitada"
     case "server":
-      return "Server error, please try again later"
+      return "Erro no servidor, por favor tente novamente mais tarde"
     case "timeout":
       return "A operação demorou muito tempo. Isso pode acontecer durante o registro devido ao envio de SMS. Por favor, tente novamente e verifique se você está conectado a uma rede estável."
     case "cannot-connect":
       return "Não foi possível conectar ao servidor. Verifique sua conexão com a internet e tente novamente."
     case "bad-data":
-      return "Invalid data received from server"
+      return "Dados inválidos recebidos do servidor"
     default:
-      return "An unknown error occurred"
+      return "Ocorreu um erro desconhecido"
   }
 }
