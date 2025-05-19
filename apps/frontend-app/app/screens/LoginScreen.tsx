@@ -1,13 +1,13 @@
-/* eslint-disable import/no-unresolved */
 import { Text } from "@/components"
 import { emailValidationRules, verificationCodeRules } from "@/utils/validationRules"
-import { useNavigation } from "@react-navigation/native"
+import { NavigationProp, useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { ActivityIndicator, Alert, Image, TextInput, TouchableOpacity, View } from "react-native"
+
 import { useAuth } from "../hooks/useAuth"
-import { AppStackScreenProps } from "../navigators/AppNavigator"
+import { AppStackParamList, AppStackScreenProps } from "../navigators/AppNavigator"
 
 const logoDark = require("../../assets/images/logos/logo-dark.png")
 const pin = require("../../assets/images/login-pin.png")
