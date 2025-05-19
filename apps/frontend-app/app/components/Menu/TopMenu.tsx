@@ -6,7 +6,9 @@ import { searchValidationRules } from "@/utils/validationRules"
 import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { Controller, useForm } from "react-hook-form"
-import { Image, TextInput, TouchableOpacity, View } from "react-native"
+import { Alert, Image, TextInput, TouchableOpacity, View } from "react-native"
+import * as ImagePicker from 'expo-image-picker'
+import { useState } from "react"
 
 export const TopMenu = observer(function HomeScreen(_props) {
   const {
@@ -17,7 +19,103 @@ export const TopMenu = observer(function HomeScreen(_props) {
       locais: "",
     },
   })
-  const navigation = useNavigation()
+  const _navigation = useNavigation() // Using underscore prefix to avoid unused var warning
+  const [profileImage, setProfileImage] = useState<string | null>(null)
+  const [isUploading, setIsUploading] = useState(false)
+
+  const handleTakePhoto = async () => {
+    // Request camera permissions
+    const { status } = await ImagePicker.requestCameraPermissionsAsync()
+
+    if (status !== 'granted') {
+      alert('Precisamos da permissão para acessar sua câmera.')
+      return
+    }
+
+    try {
+      setIsUploading(true)
+
+      // Launch the camera
+      const result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 0.7,
+      })
+
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        // Update the profile image state
+        setProfileImage(result.assets[0].uri)
+
+        // Here you would typically upload the image to your server
+        console.log("Camera image URI:", result.assets[0].uri)
+      }
+    } catch (error) {
+      console.error(error)
+      alert('Não foi possível tirar a foto.')
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
+  const handlePickImage = async () => {
+    // Request permissions first
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
+
+    if (status !== 'granted') {
+      alert('Precisamos da permissão para acessar sua galeria de fotos.')
+      return
+    }
+
+    try {
+      setIsUploading(true)
+
+      // Launch the image library
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 0.7,
+      })
+
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        // Update the profile image state
+        setProfileImage(result.assets[0].uri)
+
+        // Here you would typically upload the image to your server
+        console.log("Gallery image URI:", result.assets[0].uri)
+      }
+    } catch (error) {
+      console.error(error)
+      alert('Não foi possível selecionar a imagem.')
+    } finally {
+      setIsUploading(false)
+    }
+  }
+
+  const handleShowOptions = () => {
+    if (isUploading) return
+
+    // Use the Alert API to show options
+    Alert.alert(
+      'Foto de Perfil',
+      'Escolha uma opção',
+      [
+        {
+          text: 'Tirar Foto',
+          onPress: handleTakePhoto,
+        },
+        {
+          text: 'Escolher da Galeria',
+          onPress: handlePickImage,
+        },
+        {
+          text: 'Cancelar',
+          style: 'cancel',
+        }
+      ]
+    )
+  }
 
   return (
     <>
@@ -31,8 +129,21 @@ export const TopMenu = observer(function HomeScreen(_props) {
             explore suas redondezas
           </Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("Login" as never)}>
-          <Image source={adam} className="w-[65px] h-[65px] rounded-full" />
+        <TouchableOpacity onPress={handleShowOptions} disabled={isUploading}>
+          <View className="relative">
+            <Image
+              source={profileImage ? { uri: profileImage } : adam}
+              className="w-[65px] h-[65px] rounded-full"
+            />
+            {isUploading && (
+              <View className="absolute inset-0 items-center justify-center bg-black/30 rounded-full">
+                <Text className="text-white">...</Text>
+              </View>
+            )}
+            <View className="absolute bottom-0 right-0 bg-[#2F2F2F] rounded-full w-[20px] h-[20px] items-center justify-center">
+              <Text className="text-white text-[12px]">+</Text>
+            </View>
+          </View>
         </TouchableOpacity>
       </View>
       <View

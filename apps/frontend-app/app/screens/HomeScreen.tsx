@@ -7,6 +7,12 @@ import { HomeSwiper } from "@/components/Swiper/HomeSwiper"
 import { TopMenu } from "@/components/Menu/TopMenu"
 import { View } from "react-native"
 
+const menuOptions = {
+  label: "Home",
+  icon: "home", // <-- fixed colon
+  route: "/home"
+}
+
 export const HomeScreen = observer(function HomeScreen(_props) {
   return (
     <Screen>

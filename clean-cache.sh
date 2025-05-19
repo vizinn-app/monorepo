@@ -2,7 +2,7 @@
 # Script to restart React Native app, clearing cache and restarting the bundler
 
 echo "🧹 Cleaning React Native cache..."
-cd packages/frontend-app
+cd apps/frontend-app
 
 # Kill any existing Metro Bundler processes
 echo "🛑 Stopping any running Metro processes..."

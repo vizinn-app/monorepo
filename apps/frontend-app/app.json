@@ -22,14 +22,21 @@
         "foregroundImage": "",
         "backgroundImage": ""
       },
-      "allowBackup": false
+      "allowBackup": false,
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.ACCESS_MEDIA_LOCATION"
+      ]
     },
     "ios": {
       "icon": "./assets/images/new-icons/ios-icon.png",
       "supportsTablet": true,
       "bundleIdentifier": "com.vizinn",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSPhotoLibraryUsageDescription": "Permitir que o Vizinn acesse suas fotos para selecionar uma imagem de perfil",
+        "NSCameraUsageDescription": "Permitir que o Vizinn acesse sua câmera para tirar fotos para seu perfil"
       }
     },
     "web": {
@@ -46,6 +53,13 @@
           "imageWidth": 900,
           "resizeMode": "cover",
           "backgroundColor": "#1E2336"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "O Vizinn precisa acessar suas fotos para que você possa selecionar uma imagem de perfil.",
+          "cameraPermission": "O Vizinn precisa acessar sua câmera para que você possa tirar uma foto de perfil."
         }
       ]
     ],
