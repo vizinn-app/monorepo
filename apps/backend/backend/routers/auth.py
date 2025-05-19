@@ -13,7 +13,7 @@ from backend.schemas import (
     Token,
     verifyCodeSchema,
 )
-from backend.security import create_access_token, verify_password
+from backend.security import create_access_token
 from helper.utils import send_sms
 
 router = APIRouter(prefix='/auth', tags=['auth'])
@@ -51,7 +51,7 @@ def verify_code(data: verifyCodeSchema, session: T_Session):
             status_code=HTTPStatus.NOT_FOUND, detail='Verification code not found'
         )
 
-    if not verify_password(data.verification_code, user_verification.verification_code):
+    if data.verification_code != user_verification.verification_code:
         raise HTTPException(
             status_code=HTTPStatus.BAD_REQUEST, detail='Invalid verification code'
         )

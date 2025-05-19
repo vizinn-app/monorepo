@@ -7,10 +7,11 @@ import {
   nameValidationRules,
   phoneValidationRules,
 } from "@/utils/validationRules"
-import { useNavigation } from "@react-navigation/native"
+import { NavigationProp, useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { Controller, useForm } from "react-hook-form"
 import { ActivityIndicator, Alert, Image, TextInput, TouchableOpacity, View } from "react-native"
+import { AppStackParamList } from "../navigators/AppNavigator"
 
 const logoWhite = require("../../assets/images/logos/logo-light.png")
 const pin = require("../../assets/images/pin.png")
@@ -31,7 +32,7 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
     },
   })
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<NavigationProp<AppStackParamList>>()
   const { isLoading, error, registerUser } = useRegister()
 
   const onSubmit = async (data: any) => {
@@ -44,14 +45,17 @@ export const RegisterScreen = observer(function WelcomeScreen(_props) {
 
     console.log("Registering user:", userData)
 
-    // Call the API to register the user
     const success = await registerUser(userData)
 
     if (success) {
       Alert.alert("Sucesso!", "Seu código de verificação foi enviado ao telefone cadastrado!", [
         {
           text: "Ir para Login",
-          onPress: () => navigation.navigate("Login" as never),
+          onPress: () =>
+            navigation.navigate("Login", {
+              email: data.email,
+              hasReceivedCode: true,
+            }),
         },
       ])
     } else if (error) {

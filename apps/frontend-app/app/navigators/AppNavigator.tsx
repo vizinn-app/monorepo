@@ -8,13 +8,13 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { createNativeStackNavigator, NativeStackScreenProps } from "@react-navigation/native-stack"
 import { observer } from "mobx-react-lite"
-import * as Screens from "../screens"
-import Config from "../config"
-import { useStores } from "../models"
-import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
-import { useAppTheme, useThemeProvider } from "../utils/useAppTheme"
 import { ComponentProps } from "react"
 import { BottomMenu } from "../components/Menu/BottomMenu"
+import Config from "../config"
+import { useStores } from "../models"
+import * as Screens from "../screens"
+import { useAppTheme, useThemeProvider } from "../utils/useAppTheme"
+import { navigationRef, useBackButtonHandler } from "./navigationUtilities"
 
 /**
  * Este tipo permite que o TypeScript saiba quais rotas estão definidas neste navegador,
@@ -33,7 +33,11 @@ import { BottomMenu } from "../components/Menu/BottomMenu"
 export type AppStackParamList = {
   Welcome: undefined
   Register: undefined
-  Login: undefined
+  Login: {
+    email?: string
+    fromRegistration?: boolean
+    hasReceivedCode?: boolean
+  }
   Home: undefined
   ForgotPassword: undefined
 }

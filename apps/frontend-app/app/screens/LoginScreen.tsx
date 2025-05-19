@@ -7,6 +7,7 @@ import { useState } from "react"
 import { Controller, useForm } from "react-hook-form"
 import { ActivityIndicator, Alert, Image, TextInput, TouchableOpacity, View } from "react-native"
 import { useAuth } from "../hooks/useAuth"
+import { AppStackScreenProps } from "../navigators/AppNavigator"
 
 const logoDark = require("../../assets/images/logos/logo-dark.png")
 const pin = require("../../assets/images/login-pin.png")
@@ -19,7 +20,12 @@ type UserRegistrationForm = {
   verificationCode: string
 }
 
-export const LoginScreen = observer(function LoginScreen(_props) {
+export const LoginScreen = observer(function LoginScreen(props: AppStackScreenProps<"Login">) {
+  // Get params if coming from registration flow
+  const { route } = props
+  const prefilledEmail = route.params?.email || ""
+  const hasReceivedCode = route.params?.hasReceivedCode || false
+
   const {
     control,
     handleSubmit,
@@ -27,15 +33,15 @@ export const LoginScreen = observer(function LoginScreen(_props) {
     getValues,
   } = useForm({
     defaultValues: {
-      email: "",
+      email: prefilledEmail,
       verificationCode: "",
     },
   })
 
-  const [codeSent, setCodeSent] = useState(false)
-  const [showVerificationInput, setShowVerificationInput] = useState(false)
+  const [codeSent, setCodeSent] = useState(hasReceivedCode)
+  const [showVerificationInput, setShowVerificationInput] = useState(hasReceivedCode)
 
-  const navigation = useNavigation()
+  const navigation = useNavigation<NavigationProp<AppStackParamList>>()
   const { isLoading, error, requestVerificationCode, verifyCode, resendVerificationCode } =
     useAuth()
 
@@ -88,9 +94,9 @@ export const LoginScreen = observer(function LoginScreen(_props) {
       />
       <Image
         source={pin}
-        className="h-[599px] w-[499px] cover absolute  -translate-x-1/2 left-1/2 right-1/2"
+        className="h-[579px] w-[499px] cover absolute  -translate-x-1/2 left-1/2 right-1/2"
       />
-      <View className="w-[95%] h-[303px] bg-dark mt-auto mx-auto rounded-t-[70px] relative shadow">
+      <View className="w-[95%] h-[383px] bg-dark mt-auto mx-auto rounded-t-[70px] relative shadow">
         <View className="absolute left-1/2 -translate-x-1/2 rotate-6 py-1 px-7 bg-light rounded-full -mt-8 shadow">
           <Text className=" text-[35px] text-dark font-black">já é nosso vizinn?</Text>
           <Image
