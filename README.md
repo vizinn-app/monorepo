@@ -15,6 +15,13 @@ For a detailed contribution guide, check out our [CONTRIBUTING](https://github.c
 For information about frontend-backend connectivity, see our [FRONTEND_BACKEND_DOCUMENTATION](https://github.com/adamsnows/vizinn/blob/main/FRONTEND_BACKEND_DOCUMENTATION.md).
 ### [See or create an issue!](https://github.com/vizinn-app/app/issues)
 
+## 🎨 Design
+
+Check out our design prototype in Figma:
+- [Vizinn Design](https://www.figma.com/design/EqwjF3jl0oSDI873mcgwA7/vizinn?node-id=69-7&t=qG45NxpPBtFXYDMH-1)
+
+**Note:** The Figma design requires access permission. Please request access and the project owner will manually grant it to you.
+
 <p align="center">
 <img src="https://github.com/user-attachments/assets/f12c2d12-181a-4f49-800f-fc9eaccc1804" alt="image" />
 </p>
